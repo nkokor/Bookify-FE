@@ -1,0 +1,94 @@
+#product-details-modal {
+  width: 80%;
+  height: 450px;
+  padding-left: 40px;
+}
+
+.details-modal-title {
+  font-size: 30px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.product-details-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.details-image-div {
+  display: grid;
+  place-items: center;
+}
+
+.details-image {
+  height: 240px;
+  width: 160px;
+}
+
+.detail-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-div p {
+  margin: 0px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 10px;
+  text-align: left;
+}
+
+.detail-title {
+  font-weight: 600;
+}
+
+.info-div {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+.value-p {
+  opacity: 70%;
+}
+
+.description-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+  height: 120px;
+}
+
+.description-container p {
+  padding: 0px;
+  margin: 0px;
+  text-align: justify;
+  font-size: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 5px;
+}
+
+.reservation-button-container {
+  justify-content: left;
+}
+
+.reservation-button-container p {
+  text-align: center;
+  background-color: rgb(143, 164, 151);
+  padding: 10px;
+  color: whitesmoke;
+  width: 80px;
+  cursor: pointer;
+  margin-left: 30px;
+  opacity: 60%;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.reservation-button-container p:hover {
+  opacity: 100%;
+}
