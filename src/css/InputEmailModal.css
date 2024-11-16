@@ -14,11 +14,11 @@
   padding-top: 2px;
   padding-bottom: 2px;
   width: 300px;
-  border-radius: 50px;
+  border-radius: 3px;
   margin-top: 5px;
   margin-bottom: 5px;
   opacity: 70%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lora';
 }
 
 .email-input-modal button {
