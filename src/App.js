@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from './context/AuthContext';
 import { useRole } from './context/RoleContext';
 import Shelves from "./components/client-components/Shelves";
-import Books from "./components/admin-components/Books";
+import Products from "./components/admin-components/Products";
 import Reservations from "./components/admin-components/Reservations";
 import AISupport from "./components/client-components/AISupport";
 import Home from "./components/client-components/Home";
@@ -20,7 +20,7 @@ function App() {
   const [navbarIsVisible, setNavbarIsVisible] = useState(true);
 
   useEffect(() => {
-    const navigationRequired = ["/", "/shelves", "/ai_support", "/books", "/reservations"].includes(window.location.pathname);
+    const navigationRequired = ["/", "/shelves", "/ai_support", "/products", "/reservations"].includes(window.location.pathname);
     setNavbarIsVisible(navigationRequired);
   }, []);
 
@@ -49,7 +49,7 @@ function App() {
             </>
           ) : (
             <>
-              <Route path="/books" element={<Books />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/reservations" element={<Reservations />} />
             </>
           )}

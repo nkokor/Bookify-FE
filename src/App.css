@@ -1,5 +1,5 @@
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lora', sans-serif;
 }
 
 .page-div {
@@ -7,10 +7,10 @@ body {
 }
 
 .page-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   text-align: center;
   opacity: 90%;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.404);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.016);
 }
 
 .content-divider {
