@@ -13,7 +13,7 @@ export const userLogIn = async (loginData) => {
       return {
         accessToken: responseData.accessToken,
         username: responseData.userName,
-        role: responseData.roles[0]
+        role: responseData.roles[0].toUpperCase()
     }} else {
       throw new Error('Log in failed');
     }
@@ -71,7 +71,7 @@ export const userAccessRefresh = async () => {
       const userObject = {
         accessToken: userData.accessToken,
         username: userData.username,
-        role: userData.roles[0]
+        role: userData.roles[0].toUpperCase()
       }
       localStorage.setItem('user', userObject);
       return userObject;
@@ -90,33 +90,37 @@ export const userAccessRefresh = async () => {
 
 export const confirmCode = async (confirmationData) => {
   try {
-    console.log(confirmationData)
-    const response = await fetch(`/auth/${confirmationData.email}/email-confirmation`, {
-      method: 'PUT',
+    const requestData = {
+      userEmail: confirmationData.email,
+      confirmationCode: confirmationData.confirmationCode
+    }
+    const response = await fetch(`/auth/email-confirmation`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(confirmationData)
+      body: JSON.stringify(requestData)
     });
 
     if (response.status === 200) {
-      const responseData = await response.json();
-      return responseData;
+      return {
+        "message": "Email confirmed successfully",
+      };
     } else {
       throw new Error('Confirmation failed');
     }
   } catch (error) {
     console.error('Confirmation error:', error);
     return {
-      "message": "" 
+      "message": "ERROR: Email confirmation unsuccessful." 
     };
   }
 };
 
 export const resendConfirmationCode = async (emailData) => {
   try {
-    const response = await fetch(`/auth/${emailData}/email-confirmation-code`, {
-      method: 'PUT',
+    const response = await fetch(`/auth/email-confirmation-code`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },

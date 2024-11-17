@@ -33,7 +33,7 @@ const ConfirmationModal = ({ isOpen, onClose, email, onConfirm, setIsRegistering
 
     try {
       const response = await confirmCode({ email, confirmationCode });
-      if (response.message) {
+      if (!response.message.startsWith("ERROR")) {
         setShowStatusModal(true);
         setErrorMessage('');
         setIsRegistering(false);
