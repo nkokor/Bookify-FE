@@ -18,8 +18,8 @@ const NavbarAdmin = () => {
 
   return (
     <div id="menu-div">
-      <img id="logo-img" src='/images/icon.png' alt="BOOKIFY"></img>
-      <NavLink to="/products" className="menu-item-link" id="products-link">Products</NavLink>
+      <img id="logo-img" src='/images/icon-large.png' alt="BOOKIFY"></img>
+      <NavLink to="/" className="menu-item-link" id="products-link">Products</NavLink>
       <NavLink to="/reservations" className="menu-item-link" id="reservations-link">Reservations</NavLink>
       <LogoutButton tag="navbar" />
       <img id="menu-icon-img" src="/images/side-menu-icon.png" alt="MENU" onClick={ () => { handleHamburgerMenu() }}></img>

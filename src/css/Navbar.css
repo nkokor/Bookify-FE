@@ -6,7 +6,7 @@
   border-color: rgb(99, 99, 99);
   z-index: 8000;
   position: fixed;
-  background-color: white;
+  background-color: rgb(201, 210, 206);
   height: 80px;
   top: 0px;
   right: 0px;
@@ -15,7 +15,6 @@
 
 #logo-img {
   height: 80px;
-  width: 80px;
   padding: 7px;
   margin-right: 160px;
   margin-left: 20px;
@@ -27,7 +26,7 @@
   font-weight: 500;
   padding-left: 30px;
   padding-right: 30px;
-  color: black;
+  color: rgb(48, 61, 55);
 }
 
 .menu-item-link {
@@ -40,12 +39,12 @@
 }
 
 .menu-item-link:hover {
-  color: rgb(98, 110, 113);
+  color: rgb(28, 35, 31);
 }
 
 #menu-div a.active:hover {
   cursor: default;
-  color: black;
+  color: rgb(28, 35, 31);
 }
 
 #menu-icon-img {

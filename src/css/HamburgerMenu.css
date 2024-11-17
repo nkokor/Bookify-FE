@@ -6,7 +6,7 @@
   width: 200px;
   height: 100vh;
   padding-top: 130px;
-  background-color: white;
+  background-color: rgb(201, 210, 206);
   position: fixed;
   z-index: 450;
   align-items: start;
@@ -28,12 +28,17 @@
   font-size: large;
   padding-left: 30px;
   padding-right: 30px;
-  color: black;
+  color: rgb(48, 61, 55);
   margin-bottom: 10px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .hamburger-menu-item-link:hover {
-  color: rgb(98, 110, 113);
+  color: rgb(28, 35, 31);
 }
 
 #hamburger-menu-div a.active {

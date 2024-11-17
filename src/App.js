@@ -20,7 +20,7 @@ function App() {
   const [navbarIsVisible, setNavbarIsVisible] = useState(true);
 
   useEffect(() => {
-    const navigationRequired = ["/", "/shelves", "/ai_support", "/products", "/reservations"].includes(window.location.pathname);
+    const navigationRequired = ["/", "/shelves", "/ai_support", "/reservations"].includes(window.location.pathname);
     setNavbarIsVisible(navigationRequired);
   }, []);
 
@@ -49,7 +49,7 @@ function App() {
             </>
           ) : (
             <>
-              <Route path="/products" element={<Products />} />
+              <Route path="/" element={<Products />} />
               <Route path="/reservations" element={<Reservations />} />
             </>
           )}
