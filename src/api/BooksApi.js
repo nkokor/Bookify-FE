@@ -1,45 +1,35 @@
-export const getBooks = async () => {
-  try {
-    const response = await fetch(`/bookify-service/books/all`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch books data');
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching books data: ', error);
-    return [];
-  }
-}
+import { sendRequest } from "./GenericApi";
 
-export const getBookById = async (id) => {
+export const getProducts = async () => {
   try {
-    const response = await fetch(`/bookify-service/books/${id}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch book data');
-    } else {
-      const data = await response.json();
-      return data;
-    }
-  } catch(error) {
-    console.error('Error fetching book data: ', error);
-    return {};
-  }
-}
-
-export const deleteBook = async (id) => {
-  try {
-    const response = await fetch(`bookify-service/books/delete/${id}`);
-    if (!response.ok) {
-      return {
-        message: "ERROR"
-      };
-    } else {
-      return {
-        message: "OK"
-      };
-    }
+    const request = {
+      url: '/bookify-service/books/all',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    const response = await sendRequest(request);
+    return await response.json();
   } catch (error) {
-    console.error('Error deleting book: ', error);
+    console.error('Error fetching products: ', error);
+    throw error;
+  }
+};
+
+export const deleteProduct = async (id) => {
+  try {
+    const request = {
+      url: `/bookify-service/books/delete/${id}`,
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    const response = await sendRequest(request);
+    return await response.json();
+  } catch (error) {
+    console.error('Error deleting product: ', error)
+    throw error;
   }
 }

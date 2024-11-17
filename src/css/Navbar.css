@@ -1,9 +1,8 @@
-#menu-div {
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px, rgba(50, 50, 50, 0.2) 0px 2px 4px;
+#menu-div {  
+  border-bottom: 1px solid;
   display: flex;
   align-items: center;
-  border-bottom-width: 5px;
-  border-color: rgb(99, 99, 99);
+  border-color: rgb(118, 154, 138);
   z-index: 8000;
   position: fixed;
   background-color: rgb(201, 210, 206);
