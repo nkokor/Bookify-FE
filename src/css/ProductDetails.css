@@ -8,6 +8,7 @@
   font-size: 30px;
   text-align: left;
   font-weight: bold;
+  color: rgb(27, 37, 32);
 }
 
 .product-details-content {
@@ -40,14 +41,16 @@
 
 .detail-title {
   font-weight: 600;
+  color: rgb(37, 50, 44);
 }
 
 .info-div {
-  padding-left: 30px;
-  padding-right: 40px;
+  padding-left: 10px;
+  padding-right: 30px;
 }
 
 .value-p {
+  text-align: left;
   opacity: 70%;
 }
 
@@ -59,7 +62,7 @@
   height: 120px;
 }
 
-.description-container p {
+.description-p {
   padding: 0px;
   margin: 0px;
   text-align: justify;
@@ -69,8 +72,25 @@
   margin-top: 5px;
 }
 
+.description-container::-webkit-scrollbar {
+  width: 10px; 
+  height: 10px; 
+}
+
+.description-container::-webkit-scrollbar-thumb {
+  background-color: #88888800; 
+  border-radius: 5px; 
+  border: 2px solid #ffffff00; 
+}
+
+.description-container::-webkit-scrollbar-track {
+  background: #f1f1f100; 
+  border-radius: 5px;
+}
+
 .reservation-button-container {
   justify-content: left;
+  padding-bottom: 10px;
 }
 
 .reservation-button-container p {

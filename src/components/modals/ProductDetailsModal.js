@@ -33,7 +33,7 @@ const ProductDetailsModal = ({ onClose, product }) => {
               <p className='detail-title'>DESCRIPTION: </p>
             </div>
             <div className='description-container'>
-              <p className='value-p'>{product.description}</p>
+              <p className='value-p description-p'>{product.description}</p>
             </div>
           </div>
         </div>
