@@ -3,7 +3,7 @@ import { sendRequest } from "./GenericApi";
 export const getProducts = async () => {
   try {
     const request = {
-      url: '/bookify-service/books/all',
+      url: '/books/all',
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export const getProducts = async () => {
 export const deleteProduct = async (id) => {
   try {
     const request = {
-      url: `/bookify-service/books/delete/${id}`,
+      url: `/books/delete/${id}`,
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

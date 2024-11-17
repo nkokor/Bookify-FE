@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const RoleContext = createContext();
 
 export const RoleProvider = ({ children }) => {
-  const [role, setRole] = useState('fre');
+  const [role, setRole] = useState('');
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');

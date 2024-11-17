@@ -10,13 +10,7 @@ const LogoutButton = ({ tag }) => {
   const [modalMessage, setModalMessage] = useState('');
 
   const handleLogout = async () => {
-    const response = await signOut();
-    if (response.message) {
-      logout();
-    } else {
-      setModalMessage('Log out was not successful.');
-      setShowModal(true);
-    }
+    logout();
   };
 
   const handleCloseModal = () => {

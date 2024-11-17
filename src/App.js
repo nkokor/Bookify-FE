@@ -38,10 +38,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {navbarIsVisible && (role === 'CLIENT' ? <NavbarClient /> : <NavbarAdmin />)}
+        {navbarIsVisible && (role === 'CUSTOMER' ? <NavbarClient /> : <NavbarAdmin />)}
         {navbarIsVisible && <HamburgerMenu role={role} />}
         <Routes>
-          {role === 'CLIENT' ? (
+          {role === 'CUSTOMER' ? (
             <>
               <Route path="/" element={<Home />} />
               <Route path="/shelves" element={<Shelves />} />

@@ -8,7 +8,7 @@ import LogoutButton from './login-components/LogoutButton';
 const HamburgerMenu = ({ role }) => {
   return (
     <div id="hamburger-menu-div" className="hamburger-closed-div">
-      {role === 'CLIENT' ? (
+      {role === 'CUSTOMER' ? (
         <>
           <NavLink to="/" className="hamburger-menu-item-link" id="hamburger-home-link">Home</NavLink>
           <NavLink to="/shelves" className="hamburger-menu-item-link" id="hamburger-shelves-link">On The Shelves</NavLink>

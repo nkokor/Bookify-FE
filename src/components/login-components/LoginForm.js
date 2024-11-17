@@ -18,7 +18,6 @@ const LoginForm = () => {
     username: '',
     email: '',
     password: '',
-    coachId: ''
   });
 
   const [hasError, setHasError] = useState(false);
@@ -44,57 +43,50 @@ const LoginForm = () => {
     e.preventDefault();
     setHasError(false);
     setErrorMessage('');
-
+  
     const { username, password, firstName, lastName, email } = formData;
 
     if (!username || !password || (isRegistering && (!firstName || !lastName || !email))) {
       setIsStatusModalOpen(true);
       return;
     }
-
+  
     if (isRegistering) {
-      await registerUser();
-    } else {
-      await logIn();
-    }
-  };
-
-  const logIn = async () => {
-    try {
-      const loginResponse = await userLogIn({ username: formData.username, password: formData.password });
-      if (loginResponse.accessToken) {
-        login(loginResponse);
-        if (loginResponse.role) {
-          updateRole(loginResponse.role);
+      try {
+        const registerResponse = await userRegister(formData);
+        if (registerResponse.message.startsWith("ERROR")) {
+          setHasError(true);
+          setErrorMessage(registerResponse.message.substring(5));
+          setIsStatusModalOpen(true);
+        } else if (registerResponse.message === "Email sent.") {
+          console.log("Registration successful");
+          setIsConfirmationModalOpen(true); 
         }
-      } else {
-        throw new Error('Invalid credentials');
+      } catch (error) {
+        setHasError(true);
+        const errorMessageWithoutPrefix = error.message.replace("ERROR", "").trim();
+        setErrorMessage(`Register error: ${errorMessageWithoutPrefix}`);
+        setIsStatusModalOpen(true);
       }
-    } catch (error) {
-      setHasError(true);
-      setErrorMessage(`Log in failed: ${error.message}`);
-      setIsStatusModalOpen(true);
+    } else {
+      try {
+        const loginResponse = await userLogIn({ username: formData.username, password: formData.password });
+        if (loginResponse.accessToken) {
+          login(loginResponse);
+          if (loginResponse.role) {
+            updateRole(loginResponse.role);
+          }
+        } else {
+          throw new Error('Invalid credentials');
+        }
+      } catch (error) {
+        setHasError(true);
+        setErrorMessage(`Log in failed: ${error.message}`);
+        setIsStatusModalOpen(true);
+      }
     }
   };
 
-  const registerUser = async () => {
-    try {
-      const registerResponse = await userRegister(formData);
-      if (registerResponse.message && registerResponse.message.startsWith("ERROR")) {
-        setHasError(true);
-        setErrorMessage(registerResponse.message.substring(5));
-        setIsStatusModalOpen(true);
-      } else {
-        console.log("Registration successful");
-        setIsConfirmationModalOpen(true);
-      }
-    } catch (error) {
-      setHasError(true);
-      const errorMessageWithoutPrefix = error.message.replace("ERROR", "").trim();
-      setErrorMessage(`Register error: ${errorMessageWithoutPrefix}`);
-      setIsStatusModalOpen(true);
-    }
-  };
 
   const handleModalConfirm = (confirmationCode) => {
     console.log('Confirmed with code:', confirmationCode);

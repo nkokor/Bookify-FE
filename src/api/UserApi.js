@@ -1,6 +1,6 @@
 export const userLogIn = async (loginData) => {
   try {
-    const response = await fetch('/bookify-service/auth/login', {
+    const response = await fetch('/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -10,8 +10,11 @@ export const userLogIn = async (loginData) => {
 
     if (response.status === 200) {
       const responseData = await response.json();
-      return responseData;
-    } else {
+      return {
+        accessToken: responseData.accessToken,
+        username: responseData.userName,
+        role: responseData.roles[0]
+    }} else {
       throw new Error('Log in failed');
     }
   } catch (error) {
@@ -26,17 +29,17 @@ export const userLogIn = async (loginData) => {
 
 export const userRegister = async (registerData) => {
   try {
-    const response = await fetch('/bookify-service/auth/registration', {
+    const response = await fetch('http://localhost:8080/auth/registration', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(registerData)
     });
-
-    if (response.status === 200) {
-      const responseData = await response.json();
-      return responseData;
+    if (response.status === 201) {
+      return {
+        "message": "Email sent.", 
+      };
     } else {
       const responseData = await response.json();
       throw new Error(responseData.errors[0].message);
@@ -49,11 +52,12 @@ export const userRegister = async (registerData) => {
   }
 };
 
+
 export const userAccessRefresh = async () => {
   try {
     const user = JSON.parse(localStorage.getItem('user'));
     const accessToken = user?.accessToken;
-    const response = await fetch('/bookify-service/auth/access-refresh', {
+    const response = await fetch('/auth/access-refresh', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -63,8 +67,14 @@ export const userAccessRefresh = async () => {
 
     if (response.status === 200) {
       const responseData = await response.json();
-      localStorage.setItem('user', JSON.stringify(responseData));
-      return responseData;
+      const userData = JSON.stringify(responseData)
+      const userObject = {
+        accessToken: userData.accessToken,
+        username: userData.username,
+        role: userData.roles[0]
+      }
+      localStorage.setItem('user', userObject);
+      return userObject;
     } else {
       throw new Error('Access refresh failed');
     }
@@ -81,7 +91,7 @@ export const userAccessRefresh = async () => {
 export const confirmCode = async (confirmationData) => {
   try {
     console.log(confirmationData)
-    const response = await fetch(`/bookify-service/auth/${confirmationData.email}/email-confirmation`, {
+    const response = await fetch(`/auth/${confirmationData.email}/email-confirmation`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -105,7 +115,7 @@ export const confirmCode = async (confirmationData) => {
 
 export const resendConfirmationCode = async (emailData) => {
   try {
-    const response = await fetch(`/bookify-service/auth/${emailData}/email-confirmation-code`, {
+    const response = await fetch(`/auth/${emailData}/email-confirmation-code`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -129,7 +139,7 @@ export const resendConfirmationCode = async (emailData) => {
 
 export const getPasswordResetCode = async (email) => {
   try {
-    const response = await fetch(`/bookify-service/auth/${email}/password-reset-code`, {
+    const response = await fetch(`/auth/${email}/password-reset-code`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -152,7 +162,7 @@ export const getPasswordResetCode = async (email) => {
 
 export const resetPassword = async (resetData) => {
   try {
-    const response = await fetch(`/bookify-service/auth/${resetData.userEmail}/password-reset`, {
+    const response = await fetch(`/auth/${resetData.userEmail}/password-reset`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -168,31 +178,6 @@ export const resetPassword = async (resetData) => {
     }
   } catch (error) {
     console.error('Password refresh error:', error);
-    return {
-      "message": ""
-    };
-  }
-};
-export const signOut = async () => {
-  try {
-    const user = JSON.parse(localStorage.getItem('user'));
-    const refreshToken = user?.accessToken;
-    const response = await fetch(`/bookify-service/auth/logout`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${refreshToken}`
-      }
-    });
-
-    if (response.status === 200) {
-      const responseData = await response.json();
-      return responseData;
-    } else {
-      throw new Error('Sign out failed');
-    }
-  } catch (error) {
-    console.error('Sign out error:', error);
     return {
       "message": ""
     };
