@@ -65,7 +65,7 @@ select:focus {
   width: 148px;
   position: relative;
   top: -225px;
-  background-color: rgba(27, 27, 27, 0.386);
+  background-color: rgba(27, 27, 27, 0.788);
   opacity: 0;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;

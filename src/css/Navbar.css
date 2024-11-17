@@ -16,7 +16,7 @@
 #logo-img {
   height: 80px;
   padding: 7px;
-  margin-right: 160px;
+  margin-right: 50px;
   margin-left: 20px;
 }
 
@@ -55,7 +55,7 @@
   right: 20px;
 }
 
-@media screen and (max-width: 1209px) {
+@media screen and (max-width: 700px) {
   #menu-icon-img {
     display: block;
     position: absolute;
