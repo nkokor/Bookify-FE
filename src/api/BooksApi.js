@@ -3,7 +3,7 @@ import { sendRequest } from "./GenericApi";
 export const getProducts = async () => {
   try {
     const request = {
-      url: '/books/all',
+      url: 'http://localhost:8080/books/all',
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export const getProducts = async () => {
 export const deleteProduct = async (id) => {
   try {
     const request = {
-      url: `/books/delete/${id}`,
+      url: `http://localhost:8080/books/delete/${id}`,
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
