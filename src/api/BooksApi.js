@@ -29,7 +29,25 @@ export const deleteProduct = async (id) => {
     const response = await sendRequest(request);
     return await response.json();
   } catch (error) {
-    console.error('Error deleting product: ', error)
+    console.error('Error deleting product: ', error);
+    throw error;
+  }
+}
+
+export const createProduct = async (productData) => {
+  try {
+    const request = {
+      url: `http://localhost:8080/books/create`,
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(productData)
+    };
+    const response = await sendRequest(request);
+    return await response.json();
+  } catch (error) {
+    console.error("Error creating product: ", error);
     throw error;
   }
 }

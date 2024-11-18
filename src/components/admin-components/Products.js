@@ -4,12 +4,14 @@ import "../../css/Products.css";
 import { getProducts, deleteProduct } from '../../api/BooksApi';
 import { useEffect } from 'react';
 import StatusMessageModal from '../modals/StatusMessageModal';
+import AddProductModal from '../modals/AddProductModal';
 
 const Products = () => {
     const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
+    const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
     const [statusMessage, setStatusMessage] = useState("");
     const [products, setProducts] = useState([
-    /*    { 
+        { 
         id: 1,
         coverImage: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1672676191i/75513900.jpg',
         title: 'Powerless', 
@@ -24,10 +26,10 @@ const Products = () => {
         author: "Lauren Roberts",
         numberOfPages: 500,
         description: "The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity."
-    } */
+    } 
     ]);
 
-    const fetchProducts = async () => {
+   /* const fetchProducts = async () => {
         try {
           const data = await getProducts();
           setProducts(data);
@@ -39,14 +41,14 @@ const Products = () => {
     
       useEffect(() => {
         fetchProducts();
-      }, []);
+      }, []); */
 
     const removeProduct = async (productId) => {
         try {
             await deleteProduct(productId);
             setStatusMessage("Product has been deleted successfully.");
             setIsStatusModalOpen(true);
-            await fetchProducts();
+          //  await fetchProducts();
         } catch (error) {
             setStatusMessage("Product could not be deleted.");
             setIsStatusModalOpen(true);
@@ -58,8 +60,19 @@ const Products = () => {
         setStatusMessage("")
     }
 
+    const handleCloseAddProductModal = async () => {
+        setIsAddProductModalOpen(false);
+    }
+
     return (
         <div className='page-div' id="admin-dash">
+            <div className='create-container'>
+                <p onClick={
+                    () => {
+                        setIsAddProductModalOpen(true);
+                    }
+                }>+ ADD ITEM</p>
+            </div>
             <div className='admin-products-container'>
                 {
                     products.map((product) => {
@@ -110,7 +123,13 @@ const Products = () => {
                 onClose={handleCloseStatusModal}
                 message={statusMessage}
                 />
-             )}
+            )}
+            {isAddProductModalOpen && (
+                <AddProductModal
+                isOpen={isAddProductModalOpen}
+                onClose={handleCloseAddProductModal}
+                />
+            )}
         </div>
     );
 };

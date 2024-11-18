@@ -3,9 +3,9 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const RoleContext = createContext();
 
 export const RoleProvider = ({ children }) => {
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState('CLIENT');
 
-  useEffect(() => {
+ /* useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const userData = JSON.parse(storedUser);
@@ -13,7 +13,7 @@ export const RoleProvider = ({ children }) => {
         setRole(userData.role);
       }
     }
-  }, []);
+  }, []); */
 
   const updateRole = (newRole) => {
     setRole(newRole);
