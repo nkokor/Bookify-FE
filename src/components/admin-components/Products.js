@@ -60,7 +60,7 @@ const Products = () => {
 
     return (
         <div className='page-div' id="admin-dash">
-            <div className='admin-products-container'>
+            <div className='wide-card-products-container'>
                 {
                     products.map((product) => {
                         return (
@@ -70,31 +70,31 @@ const Products = () => {
                                         removeProduct(product.id)
                                     }}></img>
                                  </div>
-                                 <div className='admin-product-container'>
-                                    <div className='admin-product-image-container'>
+                                 <div className='wide-card-product-container'>
+                                    <div className='wide-card-product-image-container'>
                                         <img src={product.coverImage} alt={product.title} />
                                     </div>
-                                    <div className='admin-product-info-container'>
-                                        <div className='admin-detail-div'>
-                                            <p className='admin-detail-title'>TITLE: </p>
-                                            <p className='admin-value-p'>{product.title}</p>
+                                    <div className='wide-card-product-info-container'>
+                                        <div className='wide-card-detail-div'>
+                                            <p className='wide-card-detail-title'>TITLE: </p>
+                                            <p className='wide-card-value-p'>{product.title}</p>
                                         </div>
-                                        <div className='admin-detail-div'>
-                                            <p className='admin-detail-title'>AUTHOR: </p>
-                                            <p className='admin-value-p'>{product.author}</p>
+                                        <div className='wide-card-detail-div'>
+                                            <p className='wide-card-detail-title'>AUTHOR: </p>
+                                            <p className='wide-card-value-p'>{product.author}</p>
                                         </div>
-                                        <div className='admin-detail-div'>
-                                            <p className='admin-detail-title'>GENRE: </p>
-                                            <p className='admin-value-p'>{product.genre}</p>
+                                        <div className='wide-card-detail-div'>
+                                            <p className='wide-card-detail-title'>GENRE: </p>
+                                            <p className='wide-card-value-p'>{product.genre}</p>
                                         </div>
-                                        <div className='admin-detail-div'>
-                                            <p className='admin-detail-title'>NUMBER OF PAGES: </p>
-                                            <p className='admin-value-p'>{product.numberOfPages}</p>
+                                        <div className='wide-card-detail-div'>
+                                            <p className='wide-card-detail-title'>NUMBER OF PAGES: </p>
+                                            <p className='wide-card-value-p'>{product.numberOfPages}</p>
                                         </div>
-                                        <div className='admin-detail-div'>
-                                            <p className='admin-detail-title'>DESCRIPTION: </p>
+                                        <div className='wide-card-detail-div'>
+                                            <p className='wide-card-detail-title'>DESCRIPTION: </p>
                                         </div>
-                                        <div className='admin-description-container'>
+                                        <div className='wide-card-description-container'>
                                             <p>{product.description}</p>
                                         </div>
                                     </div>

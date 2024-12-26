@@ -1,6 +1,6 @@
 import React from "react";
 
-const BookRatingForm = ({ ratingInput, setRatingInput, getBookRating }) => {
+const BookSummaryForm = ({ ratingInput, setRatingInput, getBookSummary }) => {
   return (
     <div>
       <input
@@ -16,10 +16,10 @@ const BookRatingForm = ({ ratingInput, setRatingInput, getBookRating }) => {
         onChange={(e) => setRatingInput({ ...ratingInput, author: e.target.value })}
       />
       <div className="b-container">
-        <button className="button-element" onClick={getBookRating}>Get Rating</button>
+        <button className="button-element" onClick={getBookSummary}>Get Summary</button>
       </div>
     </div>
   );
 };
 
-export default BookRatingForm;
+export default BookSummaryForm;

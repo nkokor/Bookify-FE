@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const ToggleButtons = ({ activeForm, handleFormSwitch }) => {
@@ -7,13 +8,19 @@ const ToggleButtons = ({ activeForm, handleFormSwitch }) => {
         onClick={() => handleFormSwitch("recommendation")}
         className={activeForm === "recommendation" ? "active" : ""}
       >
-        Book Recommendation
+        Book recommendation
       </button>
       <button
         onClick={() => handleFormSwitch("rating")}
         className={activeForm === "rating" ? "active" : ""}
       >
-        Check Book Rating
+        Book rating
+      </button>
+      <button
+        onClick={() => handleFormSwitch("summary")}
+        className={activeForm === "summary" ? "active" : ""}
+      >
+        Book summary
       </button>
     </div>
   );

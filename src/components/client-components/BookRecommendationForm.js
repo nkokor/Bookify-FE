@@ -5,7 +5,7 @@ const genreOptions = [
   "Horror", "Thriller", "Sci-Fi", "Children's", "Action", "Mystery"
 ];
 
-const BookRecommendationForm = ({ genres, setGenres, authors, setAuthors, userFavourites, setUserFavourites, getBookRecommendation }) => {
+const BookRecommendationForm = ({ genres, setGenres, authors, setAuthors, getBookRecommendation }) => {
   return (
     <div>
       <div style={{ marginBottom: "20px" }}>
@@ -45,20 +45,6 @@ const BookRecommendationForm = ({ genres, setGenres, authors, setAuthors, userFa
         ))}
       </div>
 
-      <div style={{ marginBottom: "20px" }}>
-        <p>Provide up to 3 of your favourite books:</p>
-        {userFavourites.map((book, index) => (
-          <input
-            key={index}
-            type="text"
-            placeholder="Enter book title"
-            value={book}
-            onChange={(e) =>
-              setUserFavourites(userFavourites.map((b, i) => (i === index ? e.target.value : b)))
-            }
-          />
-        ))}
-      </div>
       <div className="b-container">
         <button className="button-element" onClick={getBookRecommendation}>Get Recommendation</button>
       </div>

@@ -12,6 +12,8 @@ import Products from "./components/admin-components/Products";
 import Reservations from "./components/admin-components/Reservations";
 import AISupport from "./components/client-components/AISupport";
 import Home from "./components/client-components/Home";
+import MyReservations from "./components/client-components/MyReservations";
+import BookifyBot from "./components/client-components/BookifyBot";
 
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
   const [navbarIsVisible, setNavbarIsVisible] = useState(true);
 
   useEffect(() => {
-    const navigationRequired = ["/", "/shelves", "/ai_support", "/reservations"].includes(window.location.pathname);
+    const navigationRequired = ["/", "/shelves", "my_reservations", "/ai_support", "bookifybot", "/reservations"].includes(window.location.pathname);
     setNavbarIsVisible(navigationRequired);
   }, []);
 
@@ -45,7 +47,9 @@ function App() {
             <>
               <Route path="/" element={<Home />} />
               <Route path="/shelves" element={<Shelves />} />
+              <Route path="/my_reservations " element={<MyReservations />} />
               <Route path="/ai_support" element={<AISupport />} />
+              <Route path="/bookifybot" element={<BookifyBot />} />
             </>
           ) : (
             <>

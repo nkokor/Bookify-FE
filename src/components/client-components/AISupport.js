@@ -1,32 +1,31 @@
 import React, { useState } from "react";
 import "../../css/AISupport.css";
-import { getRating, getRecommendation } from "../../api/AIApi";
+import { getRating, getRecommendation, getSummary } from "../../api/AIApi";
 import StatusMessageModal from "../modals/StatusMessageModal"; 
 import ToggleButtons from "./ToggleButtons";
 import BookRecommendationForm from "./BookRecommendationForm";
 import BookRatingForm from "./BookRatingForm";
+import BookSummaryForm from "./BookSummaryForm";
 
 const AISupport = () => {
   const [activeForm, setActiveForm] = useState("recommendation");
   const [genres, setGenres] = useState(["", "", ""]);
   const [authors, setAuthors] = useState(["", "", ""]);
-  const [userFavourites, setUserFavourites] = useState(["", "", ""]);
-  const [ratingInput, setRatingInput] = useState("");
+  const [ratingInput, setRatingInput] = useState({ title: "", author: "" });
   const [modalMessage, setModalMessage] = useState(""); 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getBookRecommendation = async () => {
     const filledGenres = genres.filter((g) => g.trim() !== "");
     const filledAuthors = authors.filter((a) => a.trim() !== "");
-    const filledBooks = userFavourites.filter((b) => b.trim() !== "");
 
-    if (filledGenres.length === 0 || filledAuthors.length === 0 || filledBooks.length === 0) {
+    if (filledGenres.length === 0 || filledAuthors.length === 0) {
       setModalMessage("Please provide at least one input for all categories.");
       setIsModalOpen(true);
       return;
     }
 
-    const requestData = { genres: filledGenres, authors: filledAuthors, userFavourites: filledBooks };
+    const requestData = { genres: filledGenres, authors: filledAuthors };
 
     try {
       const recommendation = await getRecommendation(requestData);
@@ -34,7 +33,6 @@ const AISupport = () => {
       setIsModalOpen(true);
       setGenres(["", "", ""]);
       setAuthors(["", "", ""]);
-      setUserFavourites(["", "", ""]);
     } catch (error) {
       setModalMessage("Something went wrong. Try again later.");
       setIsModalOpen(true);
@@ -42,17 +40,35 @@ const AISupport = () => {
   };
 
   const getBookRating = async () => {
-    if (ratingInput.trim() === "") {
-      setModalMessage("Please provide book title.");
+    if (ratingInput.title.trim() === "" || ratingInput.author.trim() === "") {
+      setModalMessage("Please provide both book title and author.");
       setIsModalOpen(true);
       return;
     }
 
     try {
-      const rating = await getRating(ratingInput.trim());
+      const rating = await getRating(ratingInput);
       setModalMessage(rating);
       setIsModalOpen(true);
-      setRatingInput("");
+      setRatingInput({ title: "", author: "" });
+    } catch (error) {
+      setModalMessage("Something went wrong. Try again later.");
+      setIsModalOpen(true);
+    }
+  };
+
+  const getBookSummary = async () => {
+    if (ratingInput.title.trim() === "" || ratingInput.author.trim() === "") {
+      setModalMessage("Please provide both book title and author.");
+      setIsModalOpen(true);
+      return;
+    }
+
+    try {
+      const summary = await getSummary(ratingInput);
+      setModalMessage(summary);
+      setIsModalOpen(true);
+      setRatingInput({ title: "", author: "" });
     } catch (error) {
       setModalMessage("Something went wrong. Try again later.");
       setIsModalOpen(true);
@@ -68,9 +84,8 @@ const AISupport = () => {
     if (formType === "recommendation") {
       setGenres(["", "", ""]);
       setAuthors(["", "", ""]);
-      setUserFavourites(["", "", ""]);
-    } else if (formType === "rating") {
-      setRatingInput("");
+    } else if (formType === "rating" || formType === "summary") {
+      setRatingInput({ title: "", author: "" });
     }
     setActiveForm(formType); 
   };
@@ -85,8 +100,6 @@ const AISupport = () => {
           setGenres={setGenres} 
           authors={authors} 
           setAuthors={setAuthors} 
-          userFavourites={userFavourites} 
-          setUserFavourites={setUserFavourites} 
           getBookRecommendation={getBookRecommendation} 
         />
       )}
@@ -96,6 +109,14 @@ const AISupport = () => {
           ratingInput={ratingInput} 
           setRatingInput={setRatingInput} 
           getBookRating={getBookRating} 
+        />
+      )}
+
+      {activeForm === "summary" && (
+        <BookSummaryForm 
+          ratingInput={ratingInput} 
+          setRatingInput={setRatingInput} 
+          getBookSummary={getBookSummary} 
         />
       )}
 

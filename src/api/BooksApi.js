@@ -17,23 +17,6 @@ export const getProducts = async () => {
   }
 };
 
-export const getReservations = async () => {
-  try {
-    const request = {
-      url: 'http://localhost:8080/reservations',
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-    }
-   };
-   const response = await sendRequest(request);
-   return await response.json();
-  } catch (error) {
-    console.error('Error fetching reservations: ', error);
-    throw error
-  }
-}
-
 export const deleteProduct = async (id) => {
   try {
     const request = {
@@ -47,6 +30,41 @@ export const deleteProduct = async (id) => {
     return await response.json();
   } catch (error) {
     console.error('Error deleting product: ', error)
+    throw error;
+  }
+}
+
+export const getReservations = async () => {
+  try {
+    const request = {
+      url: 'http://localhost:8080/books/reservations',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+    }
+   };
+   const response = await sendRequest(request);
+   return await response.json();
+  } catch (error) {
+    console.error('Error fetching reservations: ', error);
+    throw error
+  }
+}
+
+export const deleteReservation = async (id) => {
+  try {
+    const request = {
+      url: `http://localhost:8080/books/reservations`,
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({bookId: id})
+    };
+    const response = await sendRequest(request);
+    return await response.json();
+  } catch (error) {
+    console.error('Error deleting reservation: ', error)
     throw error;
   }
 }

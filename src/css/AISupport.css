@@ -69,7 +69,7 @@
 
 .toggle-buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 0px; 
   margin-bottom: 20px;
 }
@@ -80,7 +80,7 @@
   font-family: 'Lora';
   border: none;
   background-color: rgba(37, 50, 44, 0.275);
-  color: #ffffffca;
+  color: #ffffff58;
   cursor: pointer;
   transition: all 0.3s ease; 
 }
