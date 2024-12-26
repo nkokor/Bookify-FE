@@ -1,45 +1,27 @@
-import React from 'react';
-import { useState } from 'react';
-import "../../css/Products.css";
+import React, { useState, useEffect } from 'react';
 import { getProducts, deleteProduct } from '../../api/BooksApi';
-import { useEffect } from 'react';
+import AddProductModal from '../modals/AddProductModal';
 import StatusMessageModal from '../modals/StatusMessageModal';
+import "../../css/Products.css";
 
 const Products = () => {
     const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
     const [statusMessage, setStatusMessage] = useState("");
-    const [products, setProducts] = useState([
-       /* { 
-        id: 1,
-        coverImage: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1672676191i/75513900.jpg',
-        title: 'Powerless', 
-        author: "Lauren Roberts",
-        numberOfPages: 500,
-        description: "The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity."
-    },
-    { 
-        id: 1,
-        coverImage: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1672676191i/75513900.jpg',
-        title: 'Powerless', 
-        author: "Lauren Roberts",
-        numberOfPages: 500,
-        description: "The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity."
-    }*/ 
-    ]);
+    const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false); // State za modal
+    const [products, setProducts] = useState([]);
 
-   const fetchProducts = async () => {
+    const fetchProducts = async () => {
         try {
-          const data = await getProducts();
-          setProducts(data);
+            const data = await getProducts();
+            setProducts(data);
         } catch (error) {
-          console.error("Error fetching products:", error);
-         setProducts([]);
+            console.error("Error fetching products:", error);
         }
-      };
-    
-      useEffect(() => {
+    };
+
+    useEffect(() => {
         fetchProducts();
-      }, []); 
+    }, []);
 
     const removeProduct = async (productId) => {
         try {
@@ -51,66 +33,57 @@ const Products = () => {
             setStatusMessage("Product could not be deleted.");
             setIsStatusModalOpen(true);
         }
-    }
+    };
 
-    const handleCloseStatusModal = async () => {
+    const handleCloseStatusModal = () => {
         setIsStatusModalOpen(false);
-        setStatusMessage("")
-    }
+        setStatusMessage("");
+    };
+
+    const handleAddProduct = () => {
+        setIsAddProductModalOpen(true); 
+    };
+
+    const handleCloseAddProductModal = () => {
+        setIsAddProductModalOpen(false); 
+    };
 
     return (
         <div className='page-div' id="admin-dash">
+            <button className='button-element add-p-button' onClick={handleAddProduct}>+ Add product</button>
             <div className='wide-card-products-container'>
-                {
-                    products.map((product) => {
-                        return (
-                            <div className='item-container'>
-                                 <div className='item-trash-container'>
-                                    <img src="/images/trash.png" onClick={() => {
-                                        removeProduct(product.id)
-                                    }}></img>
-                                 </div>
-                                 <div className='wide-card-product-container'>
-                                    <div className='wide-card-product-image-container'>
-                                        <img src={product.coverImage} alt={product.title} />
-                                    </div>
-                                    <div className='wide-card-product-info-container'>
-                                        <div className='wide-card-detail-div'>
-                                            <p className='wide-card-detail-title'>TITLE: </p>
-                                            <p className='wide-card-value-p'>{product.title}</p>
-                                        </div>
-                                        <div className='wide-card-detail-div'>
-                                            <p className='wide-card-detail-title'>AUTHOR: </p>
-                                            <p className='wide-card-value-p'>{product.author}</p>
-                                        </div>
-                                        <div className='wide-card-detail-div'>
-                                            <p className='wide-card-detail-title'>GENRE: </p>
-                                            <p className='wide-card-value-p'>{product.genre}</p>
-                                        </div>
-                                        <div className='wide-card-detail-div'>
-                                            <p className='wide-card-detail-title'>NUMBER OF PAGES: </p>
-                                            <p className='wide-card-value-p'>{product.numberOfPages}</p>
-                                        </div>
-                                        <div className='wide-card-detail-div'>
-                                            <p className='wide-card-detail-title'>DESCRIPTION: </p>
-                                        </div>
-                                        <div className='wide-card-description-container'>
-                                            <p>{product.description}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                {products.map((product) => (
+                    <div className='item-container' key={product.id}>
+                        <div className='item-trash-container'>
+                            <img src="/images/trash.png" onClick={() => removeProduct(product.id)} alt="Delete" />
+                        </div>
+                        <div className='wide-card-product-container'>
+                            <div className='wide-card-product-image-container'>
+                                <img src={product.coverImage} alt={product.title} />
                             </div>
-                        )
-                    })
-                }
+                            <div className='wide-card-product-info-container'>
+                                <p><strong>Title:</strong> {product.title}</p>
+                                <p><strong>Author:</strong> {product.author}</p>
+                                <p><strong>Number of Pages:</strong> {product.numberOfPages}</p>
+                                <p><strong>Description:</strong> {product.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
             {isStatusModalOpen && (
                 <StatusMessageModal
-                isOpen={isStatusModalOpen}
-                onClose={handleCloseStatusModal}
-                message={statusMessage}
+                    isOpen={isStatusModalOpen}
+                    onClose={handleCloseStatusModal}
+                    message={statusMessage}
                 />
-             )}
+            )}
+            {isAddProductModalOpen && (
+                <AddProductModal
+                    isOpen={isAddProductModalOpen}
+                    onClose={handleCloseAddProductModal}
+                />
+            )}
         </div>
     );
 };

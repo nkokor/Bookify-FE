@@ -7,6 +7,15 @@
   height: fit-content;
 }
 
+#admin-dash {
+  padding-top: 200px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+} 
+
 #sorting-view-div {
   float: right;
 }
@@ -183,20 +192,14 @@ select:focus {
   }
 }
 
-.admin-products-container {
+.wide-card-products-container {
   display: flex;
   flex-direction: column;
   place-items: center;
   padding-bottom: 50px;
-  padding-left: 80px;
-  padding-right: 80px;
 }
 
-#admin-dash {
-  padding-top: 150px;
-}
-
-.admin-product-container {
+.wide-card-product-container {
   height: 200px;
   margin-left: 30px;
   margin-right: 30px;
@@ -214,54 +217,54 @@ select:focus {
   border-color: rgba(87, 103, 96, 0.442);
 }
 
-.admin-product-info-container {
+.wide-card-product-info-container {
   padding-top: 16px;
   padding-left: 15px;
 }
 
-.admin-product-info-container p {
+.wide-card-product-info-container p {
   font-size: 0.9rem;
 }
 
-.admin-detail-title {
+.wide-card-detail-title {
   opacity: 90%;
   font-weight: 500;
   color: rgb(36, 48, 43);
 }
 
-.admin-value-p {
+.wide-card-value-p {
   opacity: 90%;
   margin-left: 5px;
   color: rgb(71, 99, 87);
 }
 
-.admin-product-image-container {
+.wide-card-product-image-container {
   display: grid;
   place-items: center;
 }
 
-.admin-product-image-container img {
+.wide-card-product-image-container img {
   height: 160px;
 }
 
-.admin-detail-div {
+.wide-card-detail-div {
   display: flex;
   flex-direction: row;
   margin-bottom: 5px;
 }
 
-.admin-detail-div p {
+.wide-card-detail-div p {
   padding: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-.admin-description-container { 
+.wide-card-description-container { 
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
-.admin-description-container p {
+.wide-card-description-container p {
   opacity: 90%;
   margin-left: 5px;
   color: rgb(71, 99, 87);
@@ -273,18 +276,18 @@ select:focus {
   height: 37px;
 }
 
-.admin-description-container::-webkit-scrollbar {
+.wide-card-description-container::-webkit-scrollbar {
   width: 10px; 
   height: 10px; 
 }
 
-.admin-description-container::-webkit-scrollbar-thumb {
+.wide-card-description-container::-webkit-scrollbar-thumb {
   background-color: #88888800; 
   border-radius: 5px; 
   border: 2px solid #ffffff00; 
 }
 
-.admin-description-container::-webkit-scrollbar-track {
+.wide-card-description-container::-webkit-scrollbar-track {
   background: #f1f1f100; 
   border-radius: 5px;
 }
@@ -312,4 +315,11 @@ select:focus {
 
 .item-trash-container img:hover {
   opacity: 100%;
+}
+
+.add-p-button {
+  width: 150px;
+  position: absolute;
+  top: 150px;
+  right: 80px;
 }

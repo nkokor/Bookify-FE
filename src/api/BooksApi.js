@@ -17,6 +17,25 @@ export const getProducts = async () => {
   }
 };
 
+export const addProduct = async (productData) => {
+  try {
+    const request = {
+      url: 'http://localhost:8080/books/create',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(productData),  
+    };
+    const response = await sendRequest(request);
+    return await response.json(); 
+  } catch (error) {
+    console.error('Error adding product: ', error);
+    throw error; 
+  }
+};
+
+
 export const deleteProduct = async (id) => {
   try {
     const request = {

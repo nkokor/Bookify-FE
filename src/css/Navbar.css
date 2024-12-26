@@ -23,13 +23,14 @@
   text-decoration: none;
   font-size: large;
   font-weight: 500;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 18px;
+  padding-right: 18px;
   color: rgb(48, 61, 55);
 }
 
 .menu-item-link {
   font-weight: 400;
+  text-align: center;
   transition:  0.3s ease;
 }
 
@@ -54,7 +55,7 @@
   right: 20px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   #menu-icon-img {
     display: block;
     position: absolute;
