@@ -69,7 +69,7 @@ export const getReservations = async () => {
   }
 }
 
-export const deleteReservation = async (id) => {
+export const deleteReservation = async (requestData) => {
   try {
     const request = {
       url: `http://localhost:8080/books/reservations`,
@@ -77,7 +77,7 @@ export const deleteReservation = async (id) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({bookId: id})
+      body: JSON.stringify(requestData)
     };
     const response = await sendRequest(request);
     return await response.json();
