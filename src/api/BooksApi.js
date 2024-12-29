@@ -3,7 +3,7 @@ import { sendRequest } from "./GenericApi";
 export const getProducts = async () => {
   try {
     const request = {
-      url: 'http://localhost:8080/books/all',
+      url: '/books/all',
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export const getProducts = async () => {
 export const addProduct = async (productData) => {
   try {
     const request = {
-      url: 'http://localhost:8080/books/create',
+      url: '/books/create',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ export const addProduct = async (productData) => {
 export const deleteProduct = async (id) => {
   try {
     const request = {
-      url: `http://localhost:8080/books/delete/${id}`,
+      url: `/books/delete/${id}`,
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ export const deleteProduct = async (id) => {
 export const getReservations = async () => {
   try {
     const request = {
-      url: 'http://localhost:8080/books/reservations',
+      url: '/books/reservations',
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ export const getReservations = async () => {
 export const deleteReservation = async (requestData) => {
   try {
     const request = {
-      url: `http://localhost:8080/books/reservations`,
+      url: `/books/reservations`,
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ export const deleteReservation = async (requestData) => {
 export const makeReservation = async (reservationData) => {
   try {
     const request = {
-      url: 'http://localhost:8080/books/reserve',
+      url: '/books/reserve',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

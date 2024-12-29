@@ -1,6 +1,6 @@
 export const userLogIn = async (loginData) => {
   try {
-    const response = await fetch('http://localhost:8080/auth/login', {
+    const response = await fetch('/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export const userLogIn = async (loginData) => {
 
 export const userRegister = async (registerData) => {
   try {
-    const response = await fetch('http://localhost:8080/auth/registration', {
+    const response = await fetch('/auth/registration', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ export const userAccessRefresh = async () => {
   try {
     const user = JSON.parse(localStorage.getItem('user'));
     const accessToken = user?.accessToken;
-    const response = await fetch('http://localhost:8080/auth/access-refresh', {
+    const response = await fetch('/auth/access-refresh', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export const confirmCode = async (confirmationData) => {
       userEmail: confirmationData.email,
       confirmationCode: confirmationData.confirmationCode
     }
-    const response = await fetch(`http://localhost:8080/auth/email-confirmation`, {
+    const response = await fetch(`/auth/email-confirmation`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ export const confirmCode = async (confirmationData) => {
 
 export const resendConfirmationCode = async (emailData) => {
   try {
-    const response = await fetch(`http://localhost:8080/auth/email-confirmation-code`, {
+    const response = await fetch(`/auth/email-confirmation-code`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -143,7 +143,7 @@ export const resendConfirmationCode = async (emailData) => {
 
 export const getPasswordResetCode = async (email) => {
   try {
-    const response = await fetch(`http://localhost:8080/auth/${email}/password-reset-code`, {
+    const response = await fetch(`/auth/${email}/password-reset-code`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -166,7 +166,7 @@ export const getPasswordResetCode = async (email) => {
 
 export const resetPassword = async (resetData) => {
   try {
-    const response = await fetch(`http://localhost:8080/auth/${resetData.userEmail}/password-reset`, {
+    const response = await fetch(`/auth/${resetData.userEmail}/password-reset`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

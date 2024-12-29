@@ -1,19 +1,17 @@
 import { sendRequest } from "./GenericApi";
 
-export const getRating = async (bookTitle) => {
+export const getRating = async (requestData) => {
   try {
     const request = {
-      url: 'http://localhost:8080/openai/generate-rating',
+      url: '/openai/generate-rating',
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        title: bookTitle 
-      })
+      body: JSON.stringify(requestData)
     };
     const response = await sendRequest(request);
-    return await response.json();
+    return await response.text();
   } catch (error) {
     console.error('Error fetching rating: ', error);
     throw error;
@@ -23,7 +21,7 @@ export const getRating = async (bookTitle) => {
 export const  getRecommendation = async (requestData) => {
   try {
     const request = {
-      url: 'http://localhost:8080/openai/suggest-books',
+      url: '/openai/suggest-books',
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json'
@@ -31,7 +29,7 @@ export const  getRecommendation = async (requestData) => {
       body: JSON.stringify(requestData)
     };
     const response = await sendRequest(request);
-    return await response.json();
+    return await response.text();
   } catch (error) {
     console.error('Error fetching recommendation: ', error);
     throw error;
@@ -41,7 +39,7 @@ export const  getRecommendation = async (requestData) => {
 export const  getSummary = async (requestData) => {
   try {
     const request = {
-      url: 'http://localhost:8080/openai/generate-summary',
+      url: '/openai/generate-summary',
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json'
@@ -49,7 +47,7 @@ export const  getSummary = async (requestData) => {
       body: JSON.stringify(requestData)
     };
     const response = await sendRequest(request);
-    return await response.json();
+    return await response.text();
   } catch (error) {
     console.error('Error fetching summary: ', error);
     throw error;

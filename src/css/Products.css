@@ -73,7 +73,7 @@ select:focus {
   height: 223px;
   width: 148px;
   position: relative;
-  top: -225px;
+  top: -20px;
   background-color: rgba(27, 27, 27, 0.788);
   opacity: 0;
   -webkit-transition: all 0.4s ease;
