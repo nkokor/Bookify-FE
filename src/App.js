@@ -11,7 +11,6 @@ import Shelves from "./components/client-components/Shelves";
 import Products from "./components/admin-components/Products";
 import Reservations from "./components/admin-components/Reservations";
 import AISupport from "./components/client-components/AISupport";
-import Home from "./components/client-components/Home";
 import MyReservations from "./components/client-components/MyReservations";
 
 
@@ -21,7 +20,7 @@ function App() {
   const [navbarIsVisible, setNavbarIsVisible] = useState(true);
 
   useEffect(() => {
-    const navigationRequired = ["/", "/shelves", "my_reservations", "/ai_support", "/reservations"].includes(window.location.pathname);
+    const navigationRequired = ["/", "my_reservations", "/ai_support", "/reservations"].includes(window.location.pathname);
     setNavbarIsVisible(navigationRequired);
   }, []);
 
@@ -44,8 +43,7 @@ function App() {
         <Routes>
           {role === 'CUSTOMER' ? (
             <>
-              <Route path="/" element={<Home />} />
-              <Route path="/shelves" element={<Shelves />} />
+              <Route path="/" element={<Shelves />} />
               <Route path="/my_reservations " element={<MyReservations />} />
               <Route path="/ai_support" element={<AISupport />} />
             </>

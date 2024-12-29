@@ -35,7 +35,6 @@ export const addProduct = async (productData) => {
   }
 };
 
-
 export const deleteProduct = async (id) => {
   try {
     const request = {
@@ -87,3 +86,21 @@ export const deleteReservation = async (id) => {
     throw error;
   }
 }
+
+export const makeReservation = async (reservationData) => {
+  try {
+    const request = {
+      url: 'http://localhost:8080/books/reserve',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(reservationData),  
+    };
+    const response = await sendRequest(request);
+    return await response.json(); 
+  } catch (error) {
+    console.error('Error making a reservation: ', error);
+    throw error; 
+  }
+};

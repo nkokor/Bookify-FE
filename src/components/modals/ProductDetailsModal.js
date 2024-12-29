@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../App.css';
 import '../../css/ProductDetails.css';
+import { makeReservation } from '../../api/BooksApi';
+import StatusMessageModal from './StatusMessageModal';
 
-const ProductDetailsModal = ({ onClose, product }) => {
+const ProductDetailsModal = ({ onClose, product, onReserve }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content" id="product-details-modal">
@@ -10,7 +12,7 @@ const ProductDetailsModal = ({ onClose, product }) => {
         <p className='details-modal-title'>{product.title}, {product.author}</p>
         <div className='product-details-content'>
           <div className='details-image-div'>
-            <img className="details-image" src={product.coverImage}></img>
+            <img className="details-image" src={product.coverImage} alt={product.title} />
           </div>
           <div className='info-div'>
             <div className='detail-div'>
@@ -37,7 +39,7 @@ const ProductDetailsModal = ({ onClose, product }) => {
             </div>
           </div>
         </div>
-        <div className='reservation-button-container'>
+        <div onClick={() => onReserve(product)} className='reservation-button-container'>
           <p>RESERVE</p>
         </div>
       </div>

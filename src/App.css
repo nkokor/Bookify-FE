@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lora';
+  font-family: 'Roboto';
 }
 
 .page-div {
@@ -10,7 +10,7 @@ body {
   font-size: 2.2rem;
   text-align: center;
   opacity: 90%;
-  color: rgb(37, 50, 44);
+  color: rgb(50, 44, 37);
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.016);
 }
 
@@ -23,7 +23,8 @@ body {
 .button-element {
   border: 0px;
   height: 35px;
-  background-color: rgb(37, 50, 44);
+  background-color: rgb(216, 207, 186);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 2px;
@@ -32,8 +33,8 @@ body {
   opacity: 70%;
   transition: 0.3s ease;
   font-size: 16px;
-  color: whitesmoke;
-  font-family: 'Lora';
+  color: rgb(21, 21, 21);
+  font-family: 'Roboto';
   cursor: pointer;
 }
 
@@ -64,5 +65,5 @@ body {
   margin-top: 5px;
   margin-bottom: 5px;
   opacity: 70%;
-  font-family: 'Lora';
+  font-family: 'Roboto';
 }

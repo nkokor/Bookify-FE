@@ -8,19 +8,19 @@ const ToggleButtons = ({ activeForm, handleFormSwitch }) => {
         onClick={() => handleFormSwitch("recommendation")}
         className={activeForm === "recommendation" ? "active" : ""}
       >
-        Book recommendation
+        Recommendation
       </button>
       <button
         onClick={() => handleFormSwitch("rating")}
         className={activeForm === "rating" ? "active" : ""}
       >
-        Book rating
+        Rating
       </button>
       <button
         onClick={() => handleFormSwitch("summary")}
         className={activeForm === "summary" ? "active" : ""}
       >
-        Book summary
+        Summary
       </button>
     </div>
   );

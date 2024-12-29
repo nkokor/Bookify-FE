@@ -10,8 +10,7 @@ const HamburgerMenu = ({ role }) => {
     <div id="hamburger-menu-div" className="hamburger-closed-div">
       {role === 'CUSTOMER' ? (
         <>
-          <NavLink to="/" className="hamburger-menu-item-link" id="hamburger-home-link">Home</NavLink>
-          <NavLink to="/shelves" className="hamburger-menu-item-link" id="hamburger-shelves-link">On The Shelves</NavLink>
+          <NavLink to="/" className="hamburger-menu-item-link" id="hamburger-shelves-link">On The Shelves</NavLink>
           <NavLink to="/my_reservations" className="hamburger-menu-item-link" id="hamburger-my-reservations-link">My Reservations</NavLink> 
           <NavLink to="/ai_support" className="hamburger-menu-item-link" id="hamburger-ai-support-link">AI Support</NavLink>
           <div id="logout-div">

@@ -1,20 +1,19 @@
 #menu-div {  
-  border-bottom: 1px solid;
   display: flex;
   align-items: center;
-  border-color: rgb(118, 154, 138);
   z-index: 8000;
   position: fixed;
-  background-color: rgb(201, 210, 206);
+  background-color: rgb(224, 214, 203);
   height: 80px;
   top: 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   right: 0px;
   left: 0px;
 }
 
 #logo-img {
-  height: 80px;
-  padding: 7px;
+  height: 90px;
+  padding-top: 3px;
   margin-right: 50px;
   margin-left: 20px;
 }
@@ -25,7 +24,7 @@
   font-weight: 500;
   padding-left: 18px;
   padding-right: 18px;
-  color: rgb(48, 61, 55);
+  color: rgb(31, 31, 31);
 }
 
 .menu-item-link {

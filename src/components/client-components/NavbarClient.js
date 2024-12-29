@@ -16,9 +16,8 @@ const NavbarClient = () => {
 
   return (
     <div id="menu-div">
-      <img id="logo-img" src='/images/icon-large.png' alt="BOOKIFY"></img>
-      <NavLink to="/" className="menu-item-link" id="home-link">Home</NavLink>
-      <NavLink to="/shelves" className="menu-item-link" id="shelves-link">On The Shelves</NavLink>
+      <img id="logo-img" src='/images/icon.png' alt="BOOKIFY"></img>
+      <NavLink to="/" className="menu-item-link" id="shelves-link">On The Shelves</NavLink>
       <NavLink to="/my_reservations" className="menu-item-link" id="my-reservations-link">My Reservations</NavLink>
       <NavLink to="/ai_support" className="menu-item-link" id="ai-support-link">AI Support</NavLink>
       <LogoutButton tag="navbar"/>

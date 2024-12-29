@@ -6,7 +6,7 @@
   width: 200px;
   height: 100vh;
   padding-top: 130px;
-  background-color: rgb(201, 210, 206);
+  background-color: rgb(224, 214, 203);
   position: fixed;
   z-index: 450;
   align-items: start;
@@ -15,8 +15,7 @@
   -o-transition: all 0.4s ease;
   -ms-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  border-left: 1px solid;
-  border-color: rgb(118, 154, 138);
+  box-shadow: rgba(0, 0, 0, 0.15) -1.95px 0 2.6px;
 }
 
 .hamburger-opened-div {
@@ -34,7 +33,7 @@
   font-size: large;
   padding-left: 30px;
   padding-right: 30px;
-  color: rgb(48, 61, 55);
+  color: rgb(31, 31, 31);
   margin-bottom: 10px;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
