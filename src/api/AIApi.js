@@ -23,7 +23,7 @@ export const getRating = async (bookTitle) => {
 export const  getRecommendation = async (requestData) => {
   try {
     const request = {
-      url: 'http://localhost:8080/books/suggest-books',
+      url: 'http://localhost:8080/openai/suggest-books',
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ export const  getRecommendation = async (requestData) => {
 export const  getSummary = async (requestData) => {
   try {
     const request = {
-      url: 'http://localhost:8080/books/generate-summary',
+      url: 'http://localhost:8080/openai/generate-summary',
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json'
