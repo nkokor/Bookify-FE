@@ -91,7 +91,9 @@ const AISupport = () => {
   };
 
   return (
-    <div id='ai-content' style={{ maxWidth: "500px", margin: "0 auto" }}>
+    <div id="ai-div">
+      <p className="page-title">Let us assist you</p>
+      <div id='ai-content' style={{ maxWidth: "500px", margin: "0 auto" }}>
       <ToggleButtons activeForm={activeForm} handleFormSwitch={handleFormSwitch} />
 
       {activeForm === "recommendation" && (
@@ -121,6 +123,7 @@ const AISupport = () => {
       )}
 
       {isModalOpen && <StatusMessageModal onClose={closeModal} message={modalMessage} />}
+    </div>
     </div>
   );
 };

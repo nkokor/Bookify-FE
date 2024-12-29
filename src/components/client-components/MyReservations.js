@@ -6,32 +6,32 @@ import { useState, useEffect } from 'react';
 const MyReservations = () => {
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
-  const [reservations, setReservations] = useState([
+  const [reservations, setReservations] = useState([/*
     { 
-        id: 1,
-        coverImage: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1672676191i/75513900.jpg',
-        title: 'Powerless', 
-        author: "Lauren Roberts",
-        numberOfPages: 500,
-        description: "The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity."
-    },
+        id: 5,
+        coverImage: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630502935i/6294.jpg',
+        title: "Howl's Moving Castle", 
+        author: "Diana Wynne Jones",
+        numberOfPages: 329,
+        description: "Sophie has the great misfortune of being the eldest of three daughters, destined to fail miserably should she ever leave home to seek her fate. But when she unwittingly attracts the ire of the Witch of the Waste, Sophie finds herself under a horrid spell that transforms her into an old lady. Her only chance at breaking it lies in the ever-moving castle in the hills: the Wizard Howl's castle. To untangle the enchantment, Sophie must handle the heartless Howl, strike a bargain with a fire demon, and meet the Witch of the Waste head-on. Along the way, she discovers that there's far more to Howl—and herself—than first meets the eye."
+      },
     { 
-        id: 1,
-        coverImage: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1672676191i/75513900.jpg',
-        title: 'Powerless', 
-        author: "Lauren Roberts",
-        numberOfPages: 500,
-        description: "The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity. The powers these Elites have possessed for decades were graciously gifted to them by the Plague, though not all were fortunate enough to both survive the sickness and reap the reward. Those born Ordinary are just that—ordinary. And when the king decreed that all Ordinaries be banished in order to preserve his Elite society, lacking an ability suddenly became a crime—making Paedyn Gray a felon by fate and a thief by necessity."
-    } 
+        id: 8,
+        coverImage: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1672574587i/60531406.jpg',
+        title: 'Trees of the Emerald Sea', 
+        author: "Brandon Sanderson",
+        numberOfPages: 423,
+        description: "The only life Tress has known on her island home in an emerald-green ocean has been a simple one, with the simple pleasures of collecting cups brought by sailors from faraway lands and listening to stories told by her friend Charlie. But when his father takes him on a voyage to find a bride and disaster strikes, Tress must stow away on a ship and seek the Sorceress of the deadly Midnight Sea. Amid the spore oceans where pirates abound, can Tress leave her simple life behind and make her own place sailing a sea where a single drop of water can mean instant death?"
+    }  */
   ]);
 
   const fetchReservations = async () => {
     try {
       const data = await getReservations();
-      //setReservations(data);
+      setReservations(data);
     } catch (error) {
       console.error("Error fetching reservations:", error);
-      //setReservations([]);
+      setReservations([]);
     }
   };
 
@@ -59,7 +59,8 @@ const handleCloseStatusModal = async () => {
     setStatusMessage("")
 }
     return (
-        <div className='page-div'>
+        <div className='page-div' id="my-res-div">
+            <p className='page-title'>Your reservations</p>
             <div className='wide-card-products-container'>
                 {
                     reservations.map((product) => {

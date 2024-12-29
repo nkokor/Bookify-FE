@@ -44,7 +44,7 @@ function App() {
           {role === 'CUSTOMER' ? (
             <>
               <Route path="/" element={<Shelves />} />
-              <Route path="/my_reservations " element={<MyReservations />} />
+              <Route path="/my_reservations" element={<MyReservations />} />
               <Route path="/ai_support" element={<AISupport />} />
             </>
           ) : (
