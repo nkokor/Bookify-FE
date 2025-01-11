@@ -29,6 +29,7 @@ export const userLogIn = async (loginData) => {
 
 export const userRegister = async (registerData) => {
   try {
+    console.log(registerData);
     const response = await fetch('/auth/registration', {
       method: 'POST',
       headers: {
@@ -41,6 +42,7 @@ export const userRegister = async (registerData) => {
         "message": "Email sent.", 
       };
     } else {
+      console.log(response);
       const responseData = await response.json();
       throw new Error(responseData.errors[0].message);
     }
