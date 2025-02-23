@@ -3,6 +3,7 @@ body {
   background-image: url('../public/images/login-bg.png');
   background-repeat: repeat; 
   background-size: contain;
+  overflow: hidden;
 }
 
 .page-div {

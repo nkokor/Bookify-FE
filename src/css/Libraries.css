@@ -1,18 +1,52 @@
-#libraries-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
 #libraries-content hr {
   margin-top: 0px;
   margin-bottom: 0px;
   opacity: 50%;
 }
 
+#libraries-content {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
 .list-container {
+  padding-top: 90px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 100vh;
+  z-index: 10;
   background-color: rgb(251, 250, 248);
   overflow-y: hidden;
   overflow-y: scroll;
+}
+
+.list-container::-webkit-scrollbar {
+  width: 10px; 
+  height: 10px; 
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background-color: #88888800; 
+  border-radius: 5px; 
+  border: 2px solid #ffffff00; 
+}
+
+.list-container::-webkit-scrollbar-track {
+  background: #f1f1f100; 
+  border-radius: 5px;
 }
 
 .library-card {
@@ -75,8 +109,9 @@
   padding-left: 3px;
 }
 
-.popup-info-row a {
+.popup-info-row a, .library-info-row a {
   color: rgb(111, 127, 126);
+  margin-left: 3px;
   opacity: 80%;
   cursor: pointer;
   -webkit-transition: all 0.4s ease;
@@ -89,4 +124,23 @@
 .popup-title {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.library-info-row {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+}
+
+.library-info-row img {
+  height: 24px;
+  width: 24px;
+  margin-left: 6px;
+}
+
+.library-info-row p {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 5px;
+  margin-top: 2px;
 }
