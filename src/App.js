@@ -12,15 +12,20 @@ import Products from "./components/admin-components/Products";
 import Reservations from "./components/admin-components/Reservations";
 import AISupport from "./components/client-components/AISupport";
 import MyReservations from "./components/client-components/MyReservations";
+import Libraries from "./components/client-components/Libraries";
 
 
 function App() {
+
+
+
+
   const { isAuthenticated, login } = useAuth();
   const { role, updateRole } = useRole();
   const [navbarIsVisible, setNavbarIsVisible] = useState(true);
 
   useEffect(() => {
-    const navigationRequired = ["/", "my_reservations", "/ai_support", "/reservations"].includes(window.location.pathname);
+    const navigationRequired = ["/", "my_reservations", "/ai_support", "/reservations", "/libraries"].includes(window.location.pathname);
     setNavbarIsVisible(navigationRequired);
   }, []);
 
@@ -46,6 +51,7 @@ function App() {
               <Route path="/" element={<Shelves />} />
               <Route path="/my_reservations" element={<MyReservations />} />
               <Route path="/ai_support" element={<AISupport />} />
+              <Route path="/libraries" element={<Libraries />} />
             </>
           ) : (
             <>

@@ -13,6 +13,7 @@ const HamburgerMenu = ({ role }) => {
           <NavLink to="/" className="hamburger-menu-item-link" id="hamburger-shelves-link">On The Shelves</NavLink>
           <NavLink to="/my_reservations" className="hamburger-menu-item-link" id="hamburger-my-reservations-link">My Reservations</NavLink> 
           <NavLink to="/ai_support" className="hamburger-menu-item-link" id="hamburger-ai-support-link">AI Support</NavLink>
+          <NavLink to="/libraries" className="hamburger-menu-item-link" id="hamburger-libraries-link">Our Libraries</NavLink>
           <div id="logout-div">
             <hr></hr>
             <LogoutButton tag="side" />

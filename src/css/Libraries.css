@@ -1,0 +1,55 @@
+#libraries-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+#libraries-content hr {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  opacity: 50%;
+}
+
+.list-container {
+  background-color: rgb(251, 250, 248);
+  overflow-y: hidden;
+  overflow-y: scroll;
+}
+
+.library-card {
+  display: flex;
+  height: 150px;
+  padding: 10px;
+}
+
+.library-card p {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.library-title {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.library-email {
+  color: rgb(111, 127, 126);
+  opacity: 80%;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.library-email:hover {
+  opacity: 100%;
+}
+
+.library-img-container img {
+  height: 150px;
+  width: 150px;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import 'leaflet/dist/leaflet.css';
+
 import App from './App';
 import { AuthProvider } from './context/AuthContext';
 import { RoleProvider } from './context/RoleContext';

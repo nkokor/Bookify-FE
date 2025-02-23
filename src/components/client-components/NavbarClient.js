@@ -20,6 +20,7 @@ const NavbarClient = () => {
       <NavLink to="/" className="menu-item-link" id="shelves-link">On The Shelves</NavLink>
       <NavLink to="/my_reservations" className="menu-item-link" id="my-reservations-link">My Reservations</NavLink>
       <NavLink to="/ai_support" className="menu-item-link" id="ai-support-link">AI Support</NavLink>
+      <NavLink to="/libraries" className="menu-item-link" id="libraries-link">Our Libraries</NavLink>
       <LogoutButton tag="navbar"/>
       <img id="menu-icon-img" src="/images/side-menu-icon.png" alt="MENU" onClick={ () => { handleHamburgerMenu() }}></img>
     </div>
