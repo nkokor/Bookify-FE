@@ -57,7 +57,7 @@ The backend of this project is developed using Spring Boot and serves as a RESTf
 ## 🔧 Instalation
 1. Download the project or clone the repository by running the following command:
 ```
-gh repo clone https://github.com/nkokor/bookify-fe
+gh repo clone https://github.com/nkokor/Bookify-FE
 ```
 1. Install the dependencies by running:
 ```
