@@ -1,31 +1,27 @@
 import "../../css/Libraries.css";
 
-export default function LibraryCard({library}) {
-
-  function openEmail(recipient) {
-    if (!recipient || typeof recipient !== "string") {
-      console.error("Recipient must be a valid email address string.");
-      return;
-    }
-  
-    const mailtoLink = `mailto:${encodeURIComponent(recipient)}`;
-    window.location.href = mailtoLink;
-  }
-
+export default function LibraryCard({ library, onSelectLibrary }) {
   return (
     <div>
       <div className="library-card">
         <div className="library-img-container">
-          <img src={library.image}></img>
+          <img src={library.image} alt={library.name} />
         </div>
         <div className="library-info-container">
-          <p className="library-title">{library.name}</p>
+          <p className="library-title" onClick={onSelectLibrary} style={{ cursor: "pointer" }}>
+            {library.name}
+          </p>
           <p>{library.address}</p>
           <p>{library.phone}</p>
-          <p className="library-email" onClick={() => { openEmail(library.email)}}>{library.email}</p>
+          <p
+            className="library-email"
+            onClick={() => window.location.href = `mailto:${library.email}`}
+          >
+            {library.email}
+          </p>
         </div>
       </div>
-      <hr></hr>
+      <hr />
     </div>
   );
 }
