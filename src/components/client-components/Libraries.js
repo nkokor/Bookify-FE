@@ -10,7 +10,9 @@ export default function Libraries() {
 
   return (
     <div className="page-div" id="libraries-content">
-      <div className="map-container"></div>
+      <div className="map-container">
+        <LibrariesMap libraries={librariesData} />
+      </div>
       <div className="list-container">
         {
           librariesData.map((library) => (
