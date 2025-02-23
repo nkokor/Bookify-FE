@@ -1,40 +1,66 @@
 export const libraries = [
   {
     id: 1,
-    name: "Central Library",
-    address: "Main Street 123, Cityville",
-    phone: "+123 456 789",
-    email: "info@centrallibrary.com",
-    location: { lat: 43.8563, lng: 18.4131 },
-    image: "/images/libraries/library1.webp"
+    name: "Nacionalna i univerzitetska biblioteka Bosne i Hercegovine",
+    address: "Zmaja od Bosne 8b, 71000 Sarajevo",
+    phone: "+387 33 275 400",
+    email: "info@nub.ba",
+    image: "/images/libraries/library1.webp",
   },
   {
     id: 2,
-    name: "Westside Community Library",
-    address: "West Avenue 45, Townsville",
-    phone: "+987 654 321",
-    email: "contact@westsidecl.org",
-    location: { lat: 43.8608, lng: 18.4079 },
-    image: "/images/libraries/library2.webp"
+    name: "Biblioteka Sarajevo",
+    address: "Radićeva 7, 71000 Sarajevo",
+    phone: "+387 33 238 106",
+    email: "info@biblioteka.ba",
+    image: "/images/libraries/library2.webp",
   },
   {
     id: 3,
-    name: "Eastside Academic Library",
-    address: "East Street 78, Studyville",
-    phone: "+555 123 456",
-    email: "info@eastsideacademic.org",
-    location: { lat: 43.8521, lng: 18.4203 },
-    image: "/images/libraries/library3.webp"
+    name: "Biblioteka Fakulteta elektrotehnike Sarajevo",
+    address: "Zmaja od Bosne bb, 71000 Sarajevo",
+    phone: "+387 33 250 700",
+    email: "biblioteka@etf.unsa.ba",
+    image: "/images/libraries/library3.webp",
   },
   {
     id: 4,
-    name: "North Hills Public Library",
-    address: "Hills Road 12, Booktown",
-    phone: "+444 987 654",
-    email: "northhills@publiclib.com",
-    location: { lat: 43.8589, lng: 18.4267 },
-    image: "/images/libraries/library4.webp"
+    name: "Biblioteka Filozofskog fakulteta Sarajevo",
+    address: "Franje Račkog 1, 71000 Sarajevo",
+    phone: "+387 33 668 683",
+    email: "biblioteka@ff.unsa.ba",
+    image: "/images/libraries/library4.webp",
   },
+  {
+    id: 5,
+    name: "Biblioteka Akademije likovnih umjetnosti Sarajevo",
+    address: "Obala Maka Dizdara 3, 71000 Sarajevo",
+    phone: "+387 33 668 440",
+    email: "biblioteka@alu.unsa.ba",
+    image: "/images/libraries/library5.webp",
+  },
+  {
+    id: 6,
+    name: "Biblioteka Ekonomskog fakulteta Sarajevo",
+    address: "Zmaja od Bosne 8, 71000 Sarajevo",
+    phone: "+387 33 275 600",
+    email: "biblioteka@efsa.unsa.ba",
+    image: "/images/libraries/library6.webp",
+  },
+  {
+    id: 7,
+    name: "Biblioteka Pravosudne akademije BiH",
+    address: "Valtera Perića 15, 71000 Sarajevo",
+    phone: "+387 33 296 100",
+    email: "info@ap.gov.ba",
+    image: "/images/libraries/library7.webp",
+  },
+  {
+    id: 8,
+    name: "Biblioteka Katoličkog školskog centra Sarajevo",
+    address: "Mehmeda Spahe 20, 71000 Sarajevo",
+    phone: "+387 33 211 923",
+    email: "biblioteka@ksc.ba",
+    image: "/images/libraries/library8.webp",
+  }
 ];
-
-export default libraries;

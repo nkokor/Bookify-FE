@@ -1,4 +1,3 @@
-// Libraries.jsx
 import { useEffect, useState } from "react";
 import { libraries } from "../../data/libraries";
 import LibrariesMap from "./LibrariesMap";
