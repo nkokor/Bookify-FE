@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { libraries } from "../../data/libraries";
+import { libraries } from "../../../data/libraries";
 import LibrariesMap from "./LibrariesMap";
-import "../../css/Libraries.css";
 import LibraryCard from "./LibraryCard";
-import { getLibraries } from "../../api/LibrariesApi";
+import { getLibraries } from "../../../api/LibrariesApi";
+import "../../../css/Libraries.css";
 
 export default function Libraries() {
   const [librariesData, setLibrariesData] = useState(libraries);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../../css/AISupport.css";
-import { getRating, getRecommendation, getSummary } from "../../api/AIApi";
-import StatusMessageModal from "../modals/StatusMessageModal";
+import "../../../css/AISupport.css";
+import { getRating, getRecommendation, getSummary } from "../../../api/AIApi";
+import StatusMessageModal from "../../modals/StatusMessageModal";
 import ToggleButtons from "./ToggleButtons";
 import BookRecommendationForm from "./BookRecommendationForm";
 import BookRatingForm from "./BookRatingForm";

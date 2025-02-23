@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import '../../css/Modal.css';
 import '../../App.css';
 import { confirmCode, resendConfirmationCode } from '../../api/UserApi';
-import StatusMessageModal from './StatusMessageModal';
+import StatusMessageModal from '../modals/StatusMessageModal';
 
 const ConfirmationModal = ({ isOpen, onClose, email, onConfirm, setIsRegistering }) => {
   const [code, setCode] = useState(Array(6).fill(''));

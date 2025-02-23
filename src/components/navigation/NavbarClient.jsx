@@ -1,16 +1,16 @@
 import "../../css/Navbar.css";
 
 import { NavLink } from "react-router-dom";
-import LogoutButton from "../login-components/LogoutButton";
+import LogoutButton from "../login/LogoutButton";
 
 
 const NavbarClient = () => { 
-  function handleHamburgerMenu() {
-    let hamburgerMenu = document.getElementById("hamburger-menu-div")
-    if(hamburgerMenu.className === "hamburger-closed-div") {
-      hamburgerMenu.className = "hamburger-opened-div"
-    } else if(hamburgerMenu.className === "hamburger-opened-div") {
-      hamburgerMenu.className = "hamburger-closed-div"
+  function handleSideMenu() {
+    let sideMenu = document.getElementById("side-menu-div")
+    if(sideMenu.className === "side-closed-div") {
+      sideMenu.className = "side-opened-div"
+    } else if(sideMenu.className === "side-opened-div") {
+      sideMenu.className = "side-closed-div"
     }
   }
 
@@ -22,7 +22,7 @@ const NavbarClient = () => {
       <NavLink to="/ai_support" className="menu-item-link" id="ai-support-link">AI Support</NavLink>
       <NavLink to="/libraries" className="menu-item-link" id="libraries-link">Our Libraries</NavLink>
       <LogoutButton tag="navbar"/>
-      <img id="menu-icon-img" src="/images/side-menu-icon.png" alt="MENU" onClick={ () => { handleHamburgerMenu() }}></img>
+      <img id="menu-icon-img" src="/images/side-menu-icon.png" alt="MENU" onClick={ () => { handleSideMenu() }}></img>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import "../../css/Libraries.css";
+import "../../../css/Libraries.css";
 
 export default function LibraryCard({ library, onSelectLibrary }) {
   return (

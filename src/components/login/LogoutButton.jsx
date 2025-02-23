@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../../css/LogoutButton.css';
-import { signOut } from '../../api/UserApi';
 import { useAuth } from '../../context/AuthContext';
 import StatusMessageModal from '../modals/StatusMessageModal';
 

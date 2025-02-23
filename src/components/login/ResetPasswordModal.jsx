@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../App.css';
-import StatusMessageModal from './StatusMessageModal';
+import StatusMessageModal from '../modals/StatusMessageModal';
 
 const ResetPasswordModal = ({ onClose, onSubmit, resetPassword }) => {
   const [code, setCode] = useState(Array(6).fill(''));
