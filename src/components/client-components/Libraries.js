@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { libraries } from "../../data/libraries";
 import LibrariesMap from "./LibrariesMap";
 import "../../css/Libraries.css";
 import LibraryCard from "./LibraryCard";
+import { getLibraries } from "../../api/LibrariesApi";
 
 export default function Libraries() {
-  const [librariesData] = useState(libraries);
+  const [librariesData, setLibrariesData] = useState(libraries);
   const [selectedLibrary, setSelectedLibrary] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getLibraries();
+        setLibrariesData(data);
+      } catch (error) {
+        console.error('Error fetching libraries:', error);
+        setLibrariesData(librariesData);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="page-div" id="libraries-content">

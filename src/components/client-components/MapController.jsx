@@ -11,7 +11,6 @@ export default function MapController({ selectedLibrary, libraries, markerRefs }
       map.setView([lat, lng], 15, { animate: true });
 
       const markerRef = markerRefs[selectedLibrary.id];
-      console.log("REFFF"+markerRef)
       if (markerRef) {
         markerRef.openPopup();
       }
