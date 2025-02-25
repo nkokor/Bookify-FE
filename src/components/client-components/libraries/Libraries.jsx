@@ -24,10 +24,7 @@ export default function Libraries() {
 
   return (
     <div className="page-div" id="libraries-content">
-      <div className="map-container">
-        <LibrariesMap libraries={librariesData} selectedLibrary={selectedLibrary} />
-      </div>
-      <div className="list-container">
+       <div className="list-container">
         {librariesData.map((library) => (
           <LibraryCard
             key={library.id}
@@ -35,6 +32,9 @@ export default function Libraries() {
             onSelectLibrary={() => setSelectedLibrary(library)}
           />
         ))}
+      </div>
+      <div className="map-container">
+        <LibrariesMap libraries={librariesData} selectedLibrary={selectedLibrary} />
       </div>
     </div>
   );
