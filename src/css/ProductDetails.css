@@ -89,8 +89,11 @@
 }
 
 .reservation-button-container {
-  justify-content: left;
+  justify-content: right;
   padding-bottom: 10px;
+  position: absolute;
+  right: 42px;
+  bottom: 10px;
 }
 
 .reservation-button-container p {
@@ -110,5 +113,33 @@
 }
 
 .reservation-button-container p:hover {
+  opacity: 100%;
+}
+
+.availability-button-container {
+  position: absolute;
+  left: 42px;
+  bottom: 70px;
+  display: flex;
+}
+
+.availability-button-container img {
+  height: 24px;
+  padding-top: 13px;
+  opacity: 50%;
+}
+
+.availability-button-container p {
+  cursor: pointer;
+  opacity: 60%;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  color: rgb(56, 76, 73);
+}
+
+.availability-button-container p:hover {
   opacity: 100%;
 }
