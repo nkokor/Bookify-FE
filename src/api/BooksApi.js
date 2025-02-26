@@ -104,3 +104,20 @@ export const makeReservation = async (reservationData) => {
     throw error; 
   }
 };
+
+export const getProductAvailability = async (productId) => {
+  try {
+    const request = {
+      url: `/books/locations/${productId}`,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    const response = await sendRequest(request);
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching locations: ', error);
+    throw error;
+  }
+};
