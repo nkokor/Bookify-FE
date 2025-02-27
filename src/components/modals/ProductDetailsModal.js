@@ -18,6 +18,7 @@ const ProductDetailsModal = ({ onClose, product, onReserve }) => {
       console.error('Error checking availability:', error);
       setAvailabilityData(availability);
       setIsAvailabilityModalOpen(true);
+      console.log(availabilityData);
     }
   };
 
@@ -56,7 +57,8 @@ const ProductDetailsModal = ({ onClose, product, onReserve }) => {
       {isAvailabilityModalOpen && (
         <ProductAvailabilityModal 
           onClose={handleCloseAvailabilityModal} 
-          availability={availabilityData} 
+          locations={availabilityData} 
+          product={product}
         />
       )}
     </div>

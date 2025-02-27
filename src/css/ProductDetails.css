@@ -92,8 +92,8 @@
   justify-content: right;
   padding-bottom: 10px;
   position: absolute;
-  right: 42px;
-  bottom: 10px;
+  left: 42px;
+  bottom: 5px;
 }
 
 .reservation-button-container p {
@@ -140,6 +140,16 @@
   color: rgb(56, 76, 73);
 }
 
+.availability-container {
+  height: 400px;
+  width: 700px;
+}
+
 .availability-button-container p:hover {
   opacity: 100%;
+}
+
+.locations-title {
+  padding-top: 0px;
+  margin-top: 0px;
 }
